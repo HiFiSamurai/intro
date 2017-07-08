@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta http-equiv='X-UA-Compatible' content='IE=8; IE=10; chrome=1' />
+        <meta http-equiv='content-type' content='text-html; charset=utf-8' />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="favicon.png"/>
+        <link href='https://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet' type='text/css'>
+        <title>Maynard Russell</title>
+        <style>
+            * {
+                font-family: 'Didact Gothic', sans-serif;
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            header {
+                margin-bottom: 30px;
+                padding-bottom: 5px;
+                position: relative;
+                text-align: center;
+            }
+
+            header * {
+                margin: 0;
+                animation: slide-in 900ms;
+            }
+
+            .contentBox {
+                width: 350px;
+                display: table;
+                margin: 30px auto 0;
+            }
+
+            .contentBox .section {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 15px auto;
+                padding: 10px 15px;
+                border: 2px solid #333;
+                transition: background-color 600ms;
+                transition-delay: 100ms;
+                -moz-user-select: -moz-none;
+                -khtml-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                text-decoration: none;
+            }
+
+            .contentBox .section:hover {
+                background-color: #333;
+            }
+
+            .contentBox .section:hover * {
+                color: #FFF !important;
+            }
+
+            .contentBox .section .label {
+                color: #333;
+                transition: color 600ms;
+                text-transform: uppercase;
+                display: block;
+                text-align: center;
+            }
+
+            .contentBox .section .description {
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition: opacity 600ms, max-height 600ms;
+            }
+
+            .contentBox .section:hover .description {
+                max-height: 150px;
+                opacity: 1;
+            }
+
+            .contentBox .section .description .summary {
+                color: #666;
+                margin: 5px 0;
+                text-align: center;
+            }
+
+            @keyframes slide-in {
+            	0%      { opacity: 0; transform: translateY(30px); }
+            	100%    { opacity: 1; transform: translateY(0); }
+            }
+
+            /* MAIN LOGO */
+            .hfs-logo {
+                position: relative;
+                display: table;
+                margin: 0 auto 15px;
+            }
+            .hfs-circle {
+                width: 80px;
+                height: 80px;
+                border: 2px solid #333;
+                border-radius: 50%;
+                margin: 0 15px;
+                background-color: white;
+                background-image: linear-gradient(to bottom, transparent 50%, #333 0);
+                animation: circle-grow;
+                animation-fill-mode: forwards;
+            }
+            .hfs-circle::before {
+                content: "";
+                display: block;
+                margin-left: 50%;
+                height: 100%;
+                border-radius: 0 100% 100% 0 / 50%;
+                background-color: inherit;
+                transform-origin: left;
+                transform: rotateZ(90deg);
+                animation: circle-fill;
+                animation-fill-mode: forwards;
+            }
+            .hfs-lines::before, .hfs-lines::after {
+                content: "";
+                width: 100%;
+                height: 2px;
+                background-color: #333;
+                position: absolute;
+                top: 50%;
+                margin-top: -1px;
+                opacity: 0;
+            }
+            .hfs-lines::before {
+                animation: line-draw;
+                animation-fill-mode: forwards;
+                transform-origin: left;
+            }
+            .hfs-lines::after {
+                animation: line-rotate;
+                animation-fill-mode: forwards;
+            }
+
+            /* Stage 1 - Grow circle */
+            .hfs-circle {
+                animation-duration: 600ms;
+            }
+
+            /* Stage 2 - Draw line */
+            .hfs-lines::before {
+                animation-delay: 600ms;
+                animation-duration: 600ms;
+            }
+
+            /* Stage 3 - Rotate to fill */
+            .hfs-lines::after, .hfs-circle::before {
+                animation-delay: 1200ms;
+                animation-duration: 800ms;
+            }
+
+
+            @keyframes circle-grow {
+                0%     { transform: scale(0); }
+                100%   { transform: scale(1); }
+            }
+
+            @keyframes circle-fill {
+                0%     { transform: rotateZ(90deg); }
+                100%   { transform: rotateZ(45deg); }
+            }
+
+            @keyframes line-draw {
+                0%     { transform: scaleX(0); opacity: 1; }
+                100%   { transform: scale(1); opacity: 1; }
+            }
+
+            @keyframes line-rotate {
+                0%     { transform: rotateZ(0); opacity: 1; }
+                100%   { transform: rotateZ(-45deg); opacity: 1; }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="contentBox">
+            <div class="hfs-logo">
+                <div class="hfs-circle"></div>
+                <div class="hfs-lines"></div>
+            </div>
+            <header>
+                <h2>Maynard Russell</h2>
+                <h4>Interface Engineer</h4>
+            </header>
+            <a class="section" href="/Design-Gallery" target="_blank">
+                <span class="label">Design Gallery</span>
+                <div class="description">
+                    <p class="summary">A collection of widgets and interface components, utilizing experimental HTML and CSS techniques</p>
+                </div>
+            </a>
+            <a class="section" href="/lexicography" target="_blank">
+                <span class="label">Lexicography</span>
+                <div class="description">
+                    <p class="summary">A visualization of untranslatable words for various languages which relate to wellness and positive emotions</p>
+                </div>
+            </a>
+            <a class="section" href="/electoral" target="_blank">
+                <span class="label">Election Results</span>
+                <div class="description">
+                    <p class="summary">A visualization of U.S. presidential elections, comparing state-by-state popular vote totals and electoral college results</p>
+                </div>
+            </a>
+            <a class="section" href="//medium.com/@TheHiFiSamurai/" target="_blank">
+                <span class="label">Observations</span>
+                <div class="description">
+                    <p class="summary">An ongoing series of essays exploring the role of technology within society and its' effect on the human psyche</p>
+                </div>
+            </a>
+            <a class="section" href="resume.pdf" target="_blank">
+                <span class="label">Curriculum Vitae</span>
+                <div class="description">
+                    <p class="summary">General summary of qualifications and work experience within the field of computer engineering</p>
+                </div>
+            </a>
+        </div>
+    </body>
+</html>
